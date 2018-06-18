@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" prefHeight="428.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pacani.HomeController">
+   <children>
+      <GridPane gridLinesVisible="true" layoutX="-1.0" layoutY="-5.0" prefHeight="431.0" prefWidth="628.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="307.0" minWidth="10.0" prefWidth="187.0" />
+          <ColumnConstraints fx:id="grid_02" hgrow="SOMETIMES" maxWidth="474.0" minWidth="10.0" prefWidth="441.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane style="-fx-background-color: eaf4f4;">
+               <children>
+                  <JFXButton contentDisplay="CENTER" layoutX="16.0" layoutY="27.0" prefHeight="53.0" prefWidth="35.0" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/house.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label layoutX="102.0" layoutY="88.0" text="Reservas" />
+                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="102.0" layoutY="29.0" prefHeight="59.0" prefWidth="28.0" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/book-bookmark-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label layoutX="34.0" layoutY="88.0" text="Inicio" />
+                  <JFXButton contentDisplay="CENTER" layoutX="16.0" layoutY="124.0" prefHeight="53.0" prefWidth="35.0" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/calendar-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label layoutX="16.0" layoutY="187.0" text="Calendario" />
+                  <JFXButton contentDisplay="CENTER" layoutX="96.0" layoutY="124.0" prefHeight="53.0" prefWidth="35.0" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/profile-group-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label layoutX="106.0" layoutY="187.0" text="Clientes" />
+                  <JFXButton contentDisplay="CENTER" layoutX="16.0" layoutY="225.0" prefHeight="53.0" prefWidth="35.0" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/safe-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label layoutX="32.0" layoutY="288.0" text="Pagos" />
+                  <JFXButton contentDisplay="CENTER" layoutX="97.0" layoutY="225.0" prefHeight="53.0" prefWidth="35.0" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/user-id-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label layoutX="103.0" layoutY="288.0" text="Usuarios" />
+                  <JFXButton contentDisplay="CENTER" layoutX="16.0" layoutY="318.0" prefHeight="53.0" prefWidth="35.0" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/sign-info-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label layoutX="13.0" layoutY="381.0" text="Informacion" />
+                  <JFXButton contentDisplay="CENTER" layoutX="97.0" layoutY="318.0" prefHeight="53.0" prefWidth="35.0" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/sign-ban-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label layoutX="118.0" layoutY="381.0" text="Salir" />
+               </children></Pane>
+            <Pane style="-fx-background-color: cce3de;" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
