@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.effect.MotionBlur?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" prefHeight="423.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pacani.InicioController">
+   <children>
+      <AnchorPane prefHeight="423.0" prefWidth="600.0">
+         <children>
+            <Pane layoutX="78.0" layoutY="14.0" prefHeight="61.0" prefWidth="119.0" style="-fx-background-color: #dddddd;">
+               <effect>
+                  <MotionBlur radius="0.0" />
+               </effect>
+               <children>
+                  <Label layoutX="4.0" layoutY="6.0" text="Masajes pendientes">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numMP" alignment="CENTER" contentDisplay="CENTER" layoutY="29.0" prefHeight="35.0" prefWidth="119.0" text="0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="238.0" layoutY="14.0" prefHeight="61.0" prefWidth="119.0" style="-fx-background-color: #dddddd;">
+               <effect>
+                  <MotionBlur radius="0.0" />
+               </effect>
+               <children>
+                  <Label layoutX="7.0" layoutY="-4.0" prefHeight="35.0" prefWidth="105.0" text="Saunas pendientes">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numSP" alignment="CENTER" contentDisplay="CENTER" layoutY="30.0" prefHeight="35.0" prefWidth="119.0" text="0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="402.0" layoutY="14.0" prefHeight="68.0" prefWidth="119.0" style="-fx-background-color: #dddddd;">
+               <effect>
+                  <MotionBlur radius="0.0" />
+               </effect>
+               <children>
+                  <Label layoutY="2.0" prefHeight="35.0" prefWidth="119.0" text="Tratamientos estiticos pendientes" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numTEP" alignment="CENTER" contentDisplay="CENTER" layoutY="37.0" prefHeight="35.0" prefWidth="119.0" text="0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <HBox layoutX="14.0" layoutY="120.0" prefHeight="282.0" prefWidth="572.0">
+               <children>
+                  <TreeTableView fx:id="tablaReservas" prefHeight="279.0" prefWidth="609.0">
+                    <columns>
+                      <TreeTableColumn fx:id="colNombre" prefWidth="163.0" text="Nombre" />
+                      <TreeTableColumn fx:id="colServicio" minWidth="0.0" prefWidth="110.0" text="Servicio" />
+                        <TreeTableColumn fx:id="colFecha" prefWidth="106.0" text="Fecha" />
+                        <TreeTableColumn fx:id="colHora" prefWidth="57.0" text="Hora" />
+                        <TreeTableColumn fx:id="colEstado" prefWidth="135.0" text="Estado" />
+                    </columns>
+                  </TreeTableView>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

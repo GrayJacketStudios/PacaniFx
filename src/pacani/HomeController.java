@@ -6,11 +6,17 @@
 package pacani;
 
 import com.jfoenix.controls.JFXButton;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.Pane;
 
@@ -40,7 +46,7 @@ public class HomeController implements Initializable {
     @FXML
     private JFXButton btn_salir;
     @FXML
-    private Pane fondo;
+    private BorderPane fondo;
 
     /**
      * Initializes the controller class.
@@ -52,6 +58,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void click_Inicio(ActionEvent event) {
+        cargarVista("inicio");
     }
 
     @FXML
@@ -80,6 +87,19 @@ public class HomeController implements Initializable {
 
     @FXML
     private void click_Salir(ActionEvent event) {
+        Pacani.getInstance().userLogout();
     }
+    
+    
+    private void cargarVista(String vista){
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(vista+".fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        fondo.setCenter(root);
+    }  
     
 }

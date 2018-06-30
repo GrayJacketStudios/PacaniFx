@@ -47,7 +47,7 @@ public class Pacani extends Application {
 
         try {
             stage = primaryStage;
-            gotoLogin();
+            gotoHome();
             primaryStage.show();
         } catch (Exception ex) {
             Logger.getLogger(Pacani.class.getName()).log(Level.SEVERE, null, ex);
@@ -113,10 +113,14 @@ public class Pacani extends Application {
         }
         if(fxml.equals("home.fxml")){
             stage.setWidth(916);
-            stage.setHeight(428);
+            stage.setMinWidth(780);
+            stage.setMinHeight(445);
+            stage.setHeight(445);
             stage.setResizable(true);
         }
-        else{
+        else if(fxml.equals("pacani_login.fxml")){
+            stage.setWidth(563);
+            stage.setHeight(255);
             stage.setResizable(false);
         }
         

@@ -47,25 +47,32 @@ public class Pacani_loginController implements Initializable {
 
     @FXML
     private void iniciaSesion(ActionEvent event)  {
-        
-        System.out.println("info: "+txt_User.getText()+" | "+txt_Pas.getText());
-        this.n.setExecuteQuery("SELECT rut FROM Usuario WHERE username = '"+txt_User.getText()+"' AND password = '"+txt_Pas.getText()+"'");
-        try {
-            this.n.getRs().next();
-        } catch (SQLException ex) {
-            Logger.getLogger(Pacani_loginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
         try{
-            System.out.println("Rut: "+this.n.getRs().getString(1));
-            labelAdvertencia.setText("Iniciando sesión...");
-            Pacani.getInstance().userLogging(this.n.getRs().getString(1), txt_User.getText(),this.n.getRs().getInt(1));
-            
-            
-            
-            
-        }catch (Exception ex){
-            labelAdvertencia.setText("Usuario o contraseña Incorrecta");
-            System.out.println("error: "+ex);
+            System.out.println("info: "+txt_User.getText()+" | "+txt_Pas.getText());
+            this.n.setExecuteQuery("SELECT rut FROM Usuario WHERE username = '"+txt_User.getText()+"' AND password = '"+txt_Pas.getText()+"'");
+            try {
+                this.n.getRs().next();
+            } catch (SQLException ex) {
+                Logger.getLogger(Pacani_loginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try{
+                System.out.println("Rut: "+this.n.getRs().getString(1));
+                labelAdvertencia.setText("Iniciando sesión...");
+                
+                Pacani.getInstance().userLogging(this.n.getRs().getString(1), txt_User.getText(),this.n.getRs().getInt(1));
+                this.n.closeConnection();
+
+
+
+            }catch (Exception ex){
+                labelAdvertencia.setText("Usuario o contraseña Incorrecta");
+                System.out.println("error: "+ex);
+            }
+        }catch(RuntimeException e){
+            this.n.closeConnection();
+            this.n = new Conexion();
+            this.n.Conexion();
+            iniciaSesion(event);
         }
         
     }

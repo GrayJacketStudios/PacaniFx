@@ -1,6 +1,8 @@
 
 package pacani.controller;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Conexion {
@@ -51,6 +53,24 @@ public class Conexion {
     //DEVOLVER RESULTADO DE CONSULTA
     public ResultSet getRs(){
         return rs;
+    }
+    
+    public void closeConnection(){
+        try {
+            rs.close();
+        } catch (SQLException ex) {
+           
+        }
+        
+        try {
+            stmt.close();
+        } catch (SQLException ex) {
+            
+        }
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+        }
     }
     
    

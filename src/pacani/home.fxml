@@ -5,23 +5,24 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" minWidth="916.0" prefHeight="428.0" prefWidth="916.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pacani.HomeController">
+<AnchorPane id="AnchorPane" maxWidth="1.7976931348623157E308" minWidth="600.0" prefHeight="428.0" prefWidth="945.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pacani.HomeController">
    <children>
-      <GridPane gridLinesVisible="true" layoutX="-1.0" layoutY="-5.0" prefHeight="428.0" prefWidth="944.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-28.0" AnchorPane.topAnchor="0.0">
+      <GridPane gridLinesVisible="true" layoutX="-1.0" layoutY="-5.0" minWidth="600.0" prefHeight="428.0" prefWidth="944.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-28.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="180.0" prefWidth="180.0" />
-          <ColumnConstraints fx:id="grid_02" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="400.0" prefWidth="441.0" />
+          <ColumnConstraints fx:id="grid_02" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="600.0" prefWidth="600.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="1.7976931348623157E308" minHeight="428.0" prefHeight="428.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane prefHeight="428.0" prefWidth="222.0" style="-fx-background-color: eaf4f4;">
+            <Pane minWidth="600.0" prefHeight="428.0" style="-fx-background-color: eaf4f4;">
                <children>
                   <JFXButton fx:id="btn_inicio" contentDisplay="CENTER" layoutX="16.0" layoutY="27.0" onAction="#click_Inicio" prefHeight="53.0" prefWidth="35.0" text=" ">
                      <graphic>
@@ -104,7 +105,7 @@
                   </JFXButton>
                   <Label layoutX="118.0" layoutY="381.0" text="Salir" />
                </children></Pane>
-            <Pane fx:id="fondo" prefHeight="428.0" prefWidth="605.0" style="-fx-background-color: cce3de;" GridPane.columnIndex="1" />
+            <BorderPane fx:id="fondo" minWidth="600.0" prefHeight="428.0" prefWidth="605.0" style="-fx-background-color: cce3de;" GridPane.columnIndex="1" GridPane.vgrow="ALWAYS" />
          </children>
       </GridPane>
    </children>
