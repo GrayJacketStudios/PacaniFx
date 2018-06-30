@@ -8,23 +8,23 @@ public class Conexion {
     static Connection conn=null;
     static Statement stmt=null;
     static ResultSet rs=null;
-    
+        
     
     public Conexion(){
       
     }
     public Connection Conexion(){
-        String nomDB="";
-        String ruta="jdbc:mysql://localhost/"+nomDB;
-        String usuario="root";
-        String clave="";
+        String nomDB="pelao_Pacani";
+        String ruta="jdbc:mysql://204.12.247.170/"+nomDB;
+        String usuario="pelao_Pacani";
+        String clave="hwANqdFoSA";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn=DriverManager.getConnection(ruta,usuario,clave); 
             stmt= conn.createStatement();
             System.out.println("Conectado");
         } catch (Exception e) {
-            System.out.println("No conectado");
+            System.out.println("No conectado: "+e);
         }return conn;
     }
     

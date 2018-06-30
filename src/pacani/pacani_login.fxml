@@ -9,22 +9,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="563.0" style="-fx-background-color: eaf4f4;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pacani.Pacani_loginController">
-   <children>
-      <Label layoutX="41.0" layoutY="16.0" text="Iniciar Sesion">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="27.0" layoutY="58.0" text="Usuario" textFill="#a4c3b2" />
-      <Label layoutX="27.0" layoutY="120.0" text="Contraseña" textFill="#a4c3b2" />
-      <JFXTextField fx:id="txt_User" layoutX="27.0" layoutY="76.0" unFocusColor="#a4c3b2" />
-      <JFXButton buttonType="RAISED" layoutX="49.0" layoutY="185.0" onAction="#iniciaSesion" ripplerFill="#348d5c" style="-fx-background-color: cce3de;" text="Iniciar sesion" textAlignment="CENTER" textFill="#3c6e71" underline="true" />
-      <ImageView fitHeight="240.0" fitWidth="350.0" layoutX="213.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/bg_index.png" />
-         </image>
-      </ImageView>
-      <JFXPasswordField fx:id="txt_Pas" labelFloat="true" layoutX="26.0" layoutY="136.0" unFocusColor="#a4c3b2" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="563.0" style="-fx-background-color: eaf4f4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pacani.Pacani_loginController">
+    <children>
+        <Label layoutX="41.0" layoutY="16.0" text="Iniciar Sesion">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+        <Label layoutX="27.0" layoutY="58.0" text="Usuario" textFill="#a4c3b2" />
+        <Label layoutX="27.0" layoutY="120.0" text="Contraseña" textFill="#a4c3b2" />
+        <JFXTextField fx:id="txt_User" layoutX="27.0" layoutY="76.0" unFocusColor="#a4c3b2" />
+        <JFXPasswordField fx:id="txt_Pas" labelFloat="true" layoutX="26.0" layoutY="136.0" unFocusColor="#a4c3b2" />
+        <JFXButton buttonType="RAISED" layoutX="49.0" layoutY="197.0" onAction="#iniciaSesion" ripplerFill="#348d5c" style="-fx-background-color: cce3de;" text="Iniciar sesion" textAlignment="CENTER" textFill="#3c6e71" underline="true" />
+        <ImageView fitHeight="240.0" fitWidth="350.0" layoutX="213.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/bg_index.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="labelAdvertencia" layoutX="10.0" layoutY="170.0" />
+    </children>
 </AnchorPane>

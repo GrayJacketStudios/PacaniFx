@@ -3,12 +3,12 @@ package pacani.modelo;
 
 
 public class Persona {
-   public String rut;
-    public String nombre;
-    public String apellido;
+    private String rut;
+    private String nombre;
+    private String apellido;
     private String f_nacimiento;
-    public String telefono;
-    public String email;
+    private String telefono;
+    private String email;
 
     public Persona(String rut, String nombre, String apellido, String f_nacimiento, String telefono, String email) {
         this.rut = rut;
