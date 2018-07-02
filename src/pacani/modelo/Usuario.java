@@ -10,22 +10,22 @@ package pacani.modelo;
  * @author Keikruk
  */
 public class Usuario {
-    private String rut;
+    private Persona persona;
     private String username;
     private int nivel;
 
-    public Usuario(String rut, String username, int nivel) {
-        this.rut = rut;
+    public Usuario(Persona persona, String username, int nivel) {
+        this.persona = persona;
         this.username = username;
         this.nivel = nivel;
     }
 
-    public String getRut() {
-        return rut;
+    public Persona getPersona() {
+        return persona;
     }
 
-    public void setRut(String rut) {
-        this.rut = rut;
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 
     public String getUsername() {
