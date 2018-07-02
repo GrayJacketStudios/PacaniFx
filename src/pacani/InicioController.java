@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 import java.util.function.Function;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 
 import javafx.fxml.Initializable;
@@ -24,6 +25,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import pacani.modelo.Reserva;
 import tableView.ViewReservas;
 
@@ -78,7 +80,7 @@ public class InicioController implements Initializable {
         ObservableList<ViewReservas> list=FXCollections.observableArrayList();
         data = FXCollections.observableArrayList();
         buildData();
-        tablaReservas = new TableView<ViewReservas>();
+        TableView<ViewReservas> tablaReservas = new TableView<ViewReservas>();
         trApellido.setCellValueFactory(
         new PropertyValueFactory<ViewReservas, String>("apellido"));
         trNombre.setCellValueFactory(
@@ -97,7 +99,32 @@ public class InicioController implements Initializable {
         tablaReservas.setPlaceholder(new Label("No hay reservas para la fecha indicada."));
         
         
-    }    
+        
+        
+        
+        
+    }
+
+
+
+@FXML
+public void clickItem(MouseEvent event)
+{
+    System.out.println("Click!");
+    if (event.getClickCount() == 2) //Checking double click
+    {
+        try{
+            System.out.println(tablaReservas.getSelectionModel().getSelectedItem().getNombre());
+        }catch(Exception e){
+            System.out.println("Error! "+e);
+        }
+        
+    }
+    
+}
+
+
+
     private ObservableList<ViewReservas> data;
     @FXML
     private void buildData(){
@@ -110,6 +137,7 @@ public class InicioController implements Initializable {
             }).forEachOrdered((rv) -> {
                 if(rv.getFecha().equals(dateFormatter.format(calendario.getValue()))){
                     data.add(rv);
+                    
                 }
                 
             });

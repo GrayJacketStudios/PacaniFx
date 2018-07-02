@@ -67,7 +67,14 @@
             </Pane>
             <HBox layoutX="14.0" layoutY="120.0" prefHeight="282.0" prefWidth="572.0">
                <children>
-                  <TableView fx:id="tablaReservas" prefHeight="282.0" prefWidth="616.0">
+                  <TableView fx:id="tablaReservas" onMouseClicked="#clickItem" prefHeight="282.0" prefWidth="616.0">
+                      <placeholder>
+                          <Label fx:id="place" alignment="CENTER" contentDisplay="CENTER" layoutY="29.0" prefHeight="35.0" prefWidth="597.0" text="No hay reservas pendientes para el dia seleccionado">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                      </placeholder>
                     <columns>
                       <TableColumn fx:id="trApellido" prefWidth="75.0" text="Apellido" />
                       <TableColumn fx:id="trNombre" prefWidth="75.0" text="Nombre" />
