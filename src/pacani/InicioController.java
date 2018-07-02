@@ -110,7 +110,6 @@ public class InicioController implements Initializable {
 @FXML
 public void clickItem(MouseEvent event)
 {
-    System.out.println("Click!");
     if (event.getClickCount() == 2) //Checking double click
     {
         try{
@@ -129,7 +128,9 @@ public void clickItem(MouseEvent event)
     @FXML
     private void buildData(){
         data.clear();
-        
+        numMP.setText("0");
+        numSP.setText("0");
+        numTEP.setText("0");
         
         try{
             Pacani.getInstance().reservas.stream().map(new FunctionImpl()).map((rv) -> {
@@ -137,6 +138,26 @@ public void clickItem(MouseEvent event)
             }).forEachOrdered((rv) -> {
                 if(rv.getFecha().equals(dateFormatter.format(calendario.getValue()))){
                     data.add(rv);
+                    if(rv.getEstado().equals("Pendiente")){
+                        try{
+                            switch (rv.getServicio()) {
+                                case "Sauna":
+                                    numSP.setText((Integer.parseInt(numSP.getText())+1)+"");
+                                    break;
+                                case "Tratamiento estetico":
+                                    numTEP.setText((Integer.parseInt(numTEP.getText())+1)+"");
+                                    break;
+                                case "Masaje":
+                                    numMP.setText((Integer.parseInt(numMP.getText())+1)+"");
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }catch(Exception e){
+
+                        }
+                    }
+                    
                     
                 }
                 
