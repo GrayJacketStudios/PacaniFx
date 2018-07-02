@@ -128,7 +128,7 @@ public class Pacani extends Application {
         try {
             
             stage = primaryStage;
-            gotoLogin();
+            gotoHome();
             primaryStage.show();
         } catch (Exception ex) {
             Logger.getLogger(Pacani.class.getName()).log(Level.SEVERE, null, ex);

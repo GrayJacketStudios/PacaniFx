@@ -5,8 +5,11 @@
  */
 package pacani;
 
+import com.jfoenix.controls.JFXDatePicker;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import java.util.ResourceBundle;
 import java.util.function.Function;
@@ -54,9 +57,11 @@ public class InicioController implements Initializable {
     private TableColumn<ViewReservas, String> trEstado;
     @FXML
     private TableView<ViewReservas> tablaReservas;
+    @FXML
+    private JFXDatePicker calendario;
 
 
-    
+    private DateTimeFormatter dateFormatter;
 
 
     /**
@@ -66,37 +71,50 @@ public class InicioController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        calendario.setValue(LocalDate.now());
+            
+        dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         ObservableList<ViewReservas> list=FXCollections.observableArrayList();
+        data = FXCollections.observableArrayList();
         buildData();
-        tablaReservas = new TableView<>();
+        tablaReservas = new TableView<ViewReservas>();
         trApellido.setCellValueFactory(
-        new PropertyValueFactory<>("apellido"));
+        new PropertyValueFactory<ViewReservas, String>("apellido"));
         trNombre.setCellValueFactory(
-        new PropertyValueFactory<>("nombre"));
+        new PropertyValueFactory<ViewReservas, String>("nombre"));
         trEstado.setCellValueFactory(
-        new PropertyValueFactory<>("estado"));
+        new PropertyValueFactory<ViewReservas, String>("estado"));
         trFecha.setCellValueFactory(
-        new PropertyValueFactory<>("fecha"));
+        new PropertyValueFactory<ViewReservas, String>("fecha"));
         trHora.setCellValueFactory(
-        new PropertyValueFactory<>("hora"));
+        new PropertyValueFactory<ViewReservas, String>("hora"));
         trSaldo.setCellValueFactory(
-        new PropertyValueFactory<>("saldo"));
+        new PropertyValueFactory<ViewReservas, String>("saldo"));
         trServicio.setCellValueFactory(
-        new PropertyValueFactory<>("servicio"));
+        new PropertyValueFactory<ViewReservas, String>("servicio"));
+        
+        tablaReservas.setPlaceholder(new Label("No hay reservas para la fecha indicada."));
         
         
     }    
     private ObservableList<ViewReservas> data;
+    @FXML
     private void buildData(){
-        data = FXCollections.observableArrayList();
+        data.clear();
+        
+        
         try{
             Pacani.getInstance().reservas.stream().map(new FunctionImpl()).map((rv) -> {
-                System.out.println("Nombre: "+rv.getNombre()+" "+rv.getApellido());
                 return rv;
             }).forEachOrdered((rv) -> {
-                data.add(rv);
+                if(rv.getFecha().equals(dateFormatter.format(calendario.getValue()))){
+                    data.add(rv);
+                }
+                
             });
             tablaReservas.setItems(data);
+            tablaReservas.refresh();
         }catch(Exception e){
             System.out.println("Error: "+e);
         }

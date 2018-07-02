@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -11,7 +12,7 @@
 
 <HBox alignment="CENTER" prefHeight="423.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pacani.InicioController">
    <children>
-      <AnchorPane prefHeight="423.0" prefWidth="600.0">
+      <AnchorPane prefHeight="423.0" prefWidth="600.0" style="-fx-background-color: #778899;">
          <children>
             <Pane layoutX="78.0" layoutY="14.0" prefHeight="61.0" prefWidth="119.0" style="-fx-background-color: #dddddd;">
                <effect>
@@ -79,6 +80,8 @@
                   </TableView>
                </children>
             </HBox>
+            <Label layoutX="357.0" layoutY="93.0" text="Fecha:" />
+            <JFXDatePicker fx:id="calendario" defaultColor="#ff0404" layoutX="405.0" layoutY="89.0" onAction="#buildData" onInputMethodTextChanged="#buildData" />
          </children>
       </AnchorPane>
    </children>
