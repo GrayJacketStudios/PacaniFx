@@ -114,6 +114,9 @@ public void clickItem(MouseEvent event)
     {
         try{
             System.out.println(tablaReservas.getSelectionModel().getSelectedItem().getNombre());
+            HomeController.getInstance().cargarVista("detallesReserva");
+            DetallesReservaController.getInstance().setReserva(Reserva.getReserva(tablaReservas.getSelectionModel().getSelectedItem().getIdReserva()));
+            DetallesReservaController.getInstance().iniciar();
         }catch(Exception e){
             System.out.println("Error! "+e);
         }
@@ -177,6 +180,7 @@ public void clickItem(MouseEvent event)
         @Override
         public ViewReservas apply(Reserva res) {
             ViewReservas rv = new ViewReservas();
+            rv.setIdReserva(res.getId_reserva());
             rv.setApellido(res.getCliente().getPersona().getApellido());
             rv.setNombre(res.getCliente().getPersona().getNombre());
             switch (res.getServicio_id()) {

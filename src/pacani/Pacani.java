@@ -191,10 +191,10 @@ public class Pacani extends Application {
             stage.getScene().setRoot(page);
         }
         if(fxml.equals("home.fxml")){
-            stage.setWidth(916);
+            stage.setWidth(880);
             stage.setMinWidth(780);
             stage.setMinHeight(445);
-            stage.setHeight(445);
+            stage.setHeight(530);
             stage.setResizable(true);
         }
         else if(fxml.equals("pacani_login.fxml")){

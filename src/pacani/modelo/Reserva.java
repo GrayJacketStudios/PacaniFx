@@ -6,6 +6,7 @@
 package pacani.modelo;
 
 import java.util.Date;
+import pacani.Pacani;
 
 /**
  *
@@ -89,6 +90,21 @@ public class Reserva {
         this.estado = estado;
     }
     
+    
+    public static Reserva getReserva(int id){
+        for(Reserva res: Pacani.getInstance().reservas){
+            if(res.getId_reserva() == id){
+                return res;
+            }
+        }
+        return null;
+    }
+
+    public static int getSaldoPendiente(Reserva reserva){
+        Double precioFinal = reserva.getPrecio_final();
+        
+        return -1;
+    }
     
     
     }

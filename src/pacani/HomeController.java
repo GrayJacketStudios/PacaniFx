@@ -16,6 +16,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.Pane;
@@ -46,14 +48,22 @@ public class HomeController implements Initializable {
     @FXML
     private JFXButton btn_salir;
     @FXML
-    private BorderPane fondo;
+    private ScrollPane fondo;
 
     /**
      * Initializes the controller class.
      */
+    
+    private static HomeController instance;
+    
+    public static HomeController getInstance(){
+        return instance;
+    }
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        instance = this;
     }    
 
     @FXML
@@ -91,7 +101,7 @@ public class HomeController implements Initializable {
     }
     
     
-    private void cargarVista(String vista){
+    protected void cargarVista(String vista){
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource(vista+".fxml"));
@@ -99,7 +109,7 @@ public class HomeController implements Initializable {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        fondo.setCenter(root);
+        fondo.setContent(root);
     }  
     
 }

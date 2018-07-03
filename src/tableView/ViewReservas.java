@@ -17,6 +17,15 @@ public class ViewReservas {
     private String hora;
     private String saldo;
     private String estado;
+    private int idReserva;
+
+    public int getIdReserva() {
+        return idReserva;
+    }
+
+    public void setIdReserva(int idReserva) {
+        this.idReserva = idReserva;
+    }
 
     public String getApellido() {
         return apellido;

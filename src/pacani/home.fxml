@@ -2,10 +2,10 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
@@ -105,7 +105,11 @@
                   </JFXButton>
                   <Label layoutX="118.0" layoutY="381.0" text="Salir" />
                </children></Pane>
-            <BorderPane fx:id="fondo" minWidth="600.0" prefHeight="428.0" prefWidth="605.0" style="-fx-background-color: #2f295b;" GridPane.columnIndex="1" GridPane.vgrow="ALWAYS" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2f295b;" stylesheets="@css/main.css" GridPane.columnIndex="1">
+               <children>
+                  <ScrollPane fx:id="fondo" fitToWidth="true" pannable="true" prefHeight="428.0" style="-fx-background-color: transparent;" stylesheets="@css/main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
          </children>
       </GridPane>
    </children>

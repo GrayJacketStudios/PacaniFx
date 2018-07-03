@@ -19,6 +19,10 @@ public class Pago {
     private int tipo;
     private int tarjeta_id;
 
+    public Pago() {
+    }
+    
+
     public int getId_pago() {
         return id_pago;
     }
