@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="530.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="pacani.DetallesReservaController">
+<AnchorPane id="AnchorPane" prefHeight="530.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="pacani.controlador.fxml.DetallesReservaController">
    <children>
       <Pane layoutX="14.0" layoutY="12.0" prefHeight="97.0" prefWidth="571.0" style="-fx-border-color: blue; -fx-background-color: #f6f6f6;">
          <children>

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pacani;
+package pacani.controlador.fxml;
 
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
@@ -21,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.Pane;
+import pacani.Pacani;
 
 /**
  * FXML Controller class
@@ -104,7 +105,7 @@ public class HomeController implements Initializable {
     protected void cargarVista(String vista){
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource(vista+".fxml"));
+            root = FXMLLoader.load(getClass().getResource("/pacani/"+vista+".fxml"));
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }

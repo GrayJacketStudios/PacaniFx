@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pacani;
+package pacani.controlador.fxml;
 
 import com.jfoenix.controls.JFXDatePicker;
 import java.net.URL;
@@ -26,6 +26,7 @@ import javafx.scene.control.TableView;
 
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import pacani.Pacani;
 import pacani.modelo.Reserva;
 import tableView.ViewReservas;
 
