@@ -50,7 +50,7 @@ public class Pacani_loginController implements Initializable {
     private void iniciaSesion(ActionEvent event)  {
         try{
             System.out.println("info: "+txt_User.getText()+" | "+txt_Pas.getText());
-            Pacani.getInstance().n.setExecuteQuery("SELECT rut FROM Usuario WHERE username = '"+txt_User.getText()+"' AND password = '"+txt_Pas.getText()+"'");
+            Pacani.getInstance().n.setExecuteQuery("SELECT * FROM Usuario  WHERE username = '"+txt_User.getText()+"' AND password = '"+txt_Pas.getText()+"'");
 
             try {
                 Pacani.getInstance().n.getRs().next();
@@ -61,7 +61,7 @@ public class Pacani_loginController implements Initializable {
                 System.out.println("Rut: "+Pacani.getInstance().n.getRs().getString(1));
                 labelAdvertencia.setText("Iniciando sesión...");
                 
-                Pacani.getInstance().userLogging(Pacani.getInstance().n.getRs().getString(1), txt_User.getText(),Pacani.getInstance().n.getRs().getInt(1));
+                Pacani.getInstance().userLogging(Pacani.getInstance().n.getRs().getString(1), txt_User.getText(),Pacani.getInstance().n.getRs().getInt(4));
 
 
 
