@@ -20,6 +20,10 @@ public class Usuario {
         this.nivel = nivel;
     }
 
+    public Usuario() {
+        
+    }
+
     public Persona getPersona() {
         return persona;
     }

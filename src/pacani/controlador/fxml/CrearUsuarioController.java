@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import pacani.Pacani;
 import pacani.controller.Consultas;
 import pacani.controller.Personas;
@@ -52,6 +53,8 @@ public class CrearUsuarioController implements Initializable {
     
     
     private SimpleDateFormat dateFormatter;
+    @FXML
+    private Label lblMsg;
     
     /**
      * Initializes the controller class.
@@ -80,12 +83,24 @@ public class CrearUsuarioController implements Initializable {
         Usuario user = Usuarios.buscarUsuario(txtRut.getText());
         if(user != null){
             System.out.println("Ya hay un usuario registrado bajo este rut.");
+            lblMsg.setText("Ya hay un usuario bajo este rut.");
             return;
         }
-        user = new Usuario(per,txtUser.getText(),0);
-        Pacani.getInstance().usuarios.add(user);
-        Consultas.INSERT("INSERT INTO `Usuario` (`rut`, `username`, `password`, `nivel`) VALUES ('"+user.getPersona().getRut()+"','"+user.getUsername()+"','"+txtPass.getText()+"','0')");
-        System.out.println("Usuario añadido.");
+        user = Usuarios.buscarUsername(txtUser.getText());
+        if(user != null){
+            System.out.println("Ya hay un usuario registrado bajo este nombre de usuario.");
+            lblMsg.setText("Ya hay un usuario bajo este username.");
+            return;
+        }
+        try{
+            user = new Usuario(per,txtUser.getText(),0);
+            Pacani.getInstance().usuarios.add(user);
+            Consultas.INSERT("INSERT INTO `Usuario` (`rut`, `username`, `password`, `nivel`) VALUES ('"+user.getPersona().getRut()+"','"+user.getUsername()+"','"+txtPass.getText()+"','0')");
+            System.out.println("Usuario añadido.");
+            lblMsg.setText("Usuario añadido correctamente.");
+        }catch(Exception e){
+            lblMsg.setText("Ocurrio un error al intentar agregar el usuario.");
+        }
         
         
         

@@ -16,7 +16,6 @@ public class Consultas {
     
     
     public static void SELECT(String query){
-        Pacani.getInstance().n.Conexion();
         try{
             Pacani.getInstance().n.setExecuteQuery(query);
         }catch(Exception e){
@@ -40,7 +39,6 @@ public class Consultas {
     
     
     private static void reconnect(){
-        Pacani.getInstance().n.closeConnection();
         Pacani.getInstance().n.Conexion();
     }
     

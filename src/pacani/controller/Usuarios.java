@@ -23,4 +23,13 @@ public class Usuarios {
         return null;
     }
     
+    public static Usuario buscarUsername(String username){
+        for(Usuario user: Pacani.getInstance().usuarios){
+            if(username.equalsIgnoreCase(user.getUsername())){
+                return user;
+            }
+        }
+        return null;
+    }
+    
 }

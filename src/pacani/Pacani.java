@@ -63,6 +63,27 @@ public class Pacani extends Application {
         getPersonas();
         getClientes();
         getReservas();
+        getUsuarios();
+    }
+    
+    
+    
+    private void getUsuarios(){
+        this.n.setExecuteQuery("SELECT * from Usuario");
+        try {
+            while(this.n.getRs().next()){
+                Usuario user;
+                user = new Usuario();
+                user.setPersona(Personas.buscarPersona(this.n.getRs().getString("rut")));
+                user.setNivel(this.n.getRs().getInt("nivel"));
+                user.setUsername(this.n.getRs().getString("username"));
+                
+                usuarios.add(user);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Pacani.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            System.out.println("Obtenida lista de "+usuarios.size()+" usuarios.");
     }
     
     

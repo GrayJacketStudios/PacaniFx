@@ -61,7 +61,7 @@ public class Pacani_loginController implements Initializable {
                 System.out.println("Rut: "+Pacani.getInstance().n.getRs().getString(1));
                 labelAdvertencia.setText("Iniciando sesión...");
                 
-                Pacani.getInstance().userLogging(Pacani.getInstance().n.getRs().getString(1), txt_User.getText(),Pacani.getInstance().n.getRs().getInt(4));
+                Pacani.getInstance().userLogging(Pacani.getInstance().n.getRs().getString("rut"), txt_User.getText(),Pacani.getInstance().n.getRs().getInt("nivel"));
 
 
 
