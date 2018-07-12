@@ -10,13 +10,18 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import pacani.Pacani;
+import pacani.controller.Consultas;
+import pacani.controller.Personas;
+import pacani.controller.Usuarios;
 import pacani.modelo.Persona;
+import pacani.modelo.Usuario;
 
 /**
  * FXML Controller class
@@ -46,7 +51,7 @@ public class CrearUsuarioController implements Initializable {
     
     
     
-    private DateTimeFormatter dateFormatter;
+    private SimpleDateFormat dateFormatter;
     
     /**
      * Initializes the controller class.
@@ -54,7 +59,7 @@ public class CrearUsuarioController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        dateFormatter = new SimpleDateFormat("YYYY-MM-dd");
     }    
 
     @FXML
@@ -63,8 +68,28 @@ public class CrearUsuarioController implements Initializable {
 
     @FXML
     private void crearUsuario(ActionEvent event) {
-        Persona per = new Persona(txtRut.getText(),txtNombre.getText(),txtApellido.getText(),dateFormatter.format(dateNacimiento.getValue()),txtTelefono.getText(),txtCorreo.getText());
-        Pacani.getInstance().n.setExecuteQuery("INSERT INTO ");
+        Persona per = null;
+        per = Personas.buscarPersona(txtRut.getText());
+        if(per == null){
+            per = new Persona(txtRut.getText(),txtNombre.getText(),txtApellido.getText(),java.sql.Date.valueOf(dateNacimiento.getValue()),txtTelefono.getText(),txtCorreo.getText(),Calendar.getInstance().getTime());
+            Pacani.getInstance().personas.add(per);
+            Consultas.INSERT("INSERT INTO `Persona` (`rut`, `nombre`, `apellido`, `f_nacimiento`, `telefono`, `email`) VALUES ('"+per.getRut()+"','"+per.getNombre()+"','"+per.getApellido()+"','"+dateFormatter.format(per.getF_nacimiento())+"','"+per.getTelefono()+"','"+per.getEmail()+"')");
+            
+        }
+        
+        Usuario user = Usuarios.buscarUsuario(txtRut.getText());
+        if(user != null){
+            System.out.println("Ya hay un usuario registrado bajo este rut.");
+            return;
+        }
+        user = new Usuario(per,txtUser.getText(),0);
+        Pacani.getInstance().usuarios.add(user);
+        Consultas.INSERT("INSERT INTO `Usuario` (`rut`, `username`, `password`, `nivel`) VALUES ('"+user.getPersona().getRut()+"','"+user.getUsername()+"','"+txtPass.getText()+"','0')");
+        System.out.println("Usuario añadido.");
+        
+        
+        
+        
     }
     
 }

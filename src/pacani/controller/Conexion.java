@@ -10,16 +10,16 @@ public class Conexion {
     static Connection conn=null;
     static Statement stmt=null;
     static ResultSet rs=null;
+    private String nomDB="pelao_Pacani";
+    private String ruta="jdbc:mysql://204.12.247.170/"+nomDB;
+    private String usuario="pelao_Pacani";
+    private String clave="hwANqdFoSA";
         
     
     public Conexion(){
       
     }
     public Connection Conexion(){
-        String nomDB="pelao_Pacani";
-        String ruta="jdbc:mysql://204.12.247.170/"+nomDB;
-        String usuario="pelao_Pacani";
-        String clave="hwANqdFoSA";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn=DriverManager.getConnection(ruta,usuario,clave); 
@@ -37,7 +37,7 @@ public class Conexion {
             stmt=conn.createStatement();
             stmt.executeUpdate(sql);
         } catch (Exception ex){
-            System.out.println("ERROR"+ex.getMessage());        
+            System.out.println("ERROR: "+ex.getMessage());        
         }
     }
     //SELECT
@@ -46,7 +46,7 @@ public class Conexion {
             stmt=conn.createStatement();
             rs=stmt.executeQuery(sql);
         } catch (Exception ex){
-            System.out.println("ERROR"+ex.getMessage());
+            System.out.println("ERROR: "+ex.getMessage());
         }
     }
    

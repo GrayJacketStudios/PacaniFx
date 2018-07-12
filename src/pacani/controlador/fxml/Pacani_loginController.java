@@ -10,14 +10,13 @@ import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import pacani.Pacani;
 import pacani.controller.Conexion;
+import pacani.controller.Consultas;
 
 /**
  * FXML Controller class
@@ -48,9 +47,10 @@ public class Pacani_loginController implements Initializable {
 
     @FXML
     private void iniciaSesion(ActionEvent event)  {
+        
         try{
             System.out.println("info: "+txt_User.getText()+" | "+txt_Pas.getText());
-            Pacani.getInstance().n.setExecuteQuery("SELECT * FROM Usuario  WHERE username = '"+txt_User.getText()+"' AND password = '"+txt_Pas.getText()+"'");
+            Consultas.SELECT("SELECT * FROM Usuario  WHERE username = '"+txt_User.getText()+"' AND password = '"+txt_Pas.getText()+"'");
 
             try {
                 Pacani.getInstance().n.getRs().next();
@@ -76,7 +76,6 @@ public class Pacani_loginController implements Initializable {
     }
     private void reTry(ActionEvent event){
             Pacani.getInstance().n.closeConnection();
-            Pacani.getInstance().n = new Conexion();
             Pacani.getInstance().n.Conexion();
             iniciaSesion(event);
     }
