@@ -67,6 +67,7 @@ public class CrearUsuarioController implements Initializable {
 
     @FXML
     private void volver(ActionEvent event) {
+        HomeController.getInstance().cargarVista("listaUsuarios");
     }
 
     @FXML

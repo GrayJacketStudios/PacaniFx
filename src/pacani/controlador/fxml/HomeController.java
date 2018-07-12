@@ -65,6 +65,7 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         instance = this;
+        cargarVista("inicio");
     }    
 
     @FXML
@@ -82,6 +83,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void click_Clientes(ActionEvent event) {
+        cargarVista("listaClientes");
         
     }
 
@@ -93,7 +95,7 @@ public class HomeController implements Initializable {
     private void click_Usuarios(ActionEvent event) {
         System.out.println("Nivel: over("+Pacani.getInstance().getLoggedUser().getNivel()+")");
         if(Pacani.getInstance().getLoggedUser().getNivel() >= 10){
-            cargarVista("CrearUsuario");
+            cargarVista("listaUsuarios");
         }
         
     }
