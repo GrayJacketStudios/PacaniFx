@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -9,31 +10,34 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pacani.controlador.fxml.CrearUsuarioController">
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0">
+      <Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f6f6f6;">
          <children>
             <Pane layoutX="404.0" layoutY="86.0" prefHeight="114.0" prefWidth="109.0">
                <children>
-                  <JFXButton layoutX="23.0" layoutY="68.0" text="Cancelar" />
-                  <JFXButton buttonType="RAISED" layoutX="12.0" layoutY="14.0" text="Crear Cliente" />
+                  <JFXButton layoutX="23.0" layoutY="68.0" onAction="#volver" style="-fx-background-color: red;" text="Cancelar" />
+                  <JFXButton fx:id="btnCUser" buttonType="RAISED" layoutX="12.0" layoutY="14.0" onAction="#crearUsuario" style="-fx-background-color: green;" text="Crear Usuario" />
                </children>
             </Pane>
-            <Pane layoutX="22.0" layoutY="48.0" prefHeight="304.0" prefWidth="294.0">
+            <Pane layoutX="22.0" layoutY="12.0" prefHeight="376.0" prefWidth="294.0">
                <children>
                   <Text layoutX="62.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" wrappingWidth="51.62500441074371" />
-                  <JFXTextField layoutX="123.0" layoutY="22.0" />
+                  <JFXTextField fx:id="txtNombre" layoutX="123.0" layoutY="22.0" />
                   <Text layoutX="65.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido:" />
                   <Text layoutX="88.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rut:" />
                   <Text layoutX="14.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Nacimiento:" />
                   <Text layoutX="72.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo:" wrappingWidth="51.62501335144043" />
                   <Text layoutX="63.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono:" />
-                  <JFXTextField layoutX="123.0" layoutY="67.0" />
-                  <JFXTextField layoutX="123.0" layoutY="110.0" />
-                  <JFXTextField layoutX="123.0" layoutY="152.0" />
-                  <JFXTextField layoutX="123.0" layoutY="189.0" />
-                  <JFXTextField layoutX="123.0" layoutY="226.0" />
+                  <JFXTextField fx:id="txtApellido" layoutX="123.0" layoutY="67.0" />
+                  <JFXTextField fx:id="txtRut" layoutX="123.0" layoutY="110.0" />
+                  <JFXTextField fx:id="txtCorreo" layoutX="123.0" layoutY="189.0" />
+                  <JFXTextField fx:id="txtTelefono" layoutX="123.0" layoutY="226.0" />
+                  <Text layoutX="66.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
+                  <JFXTextField fx:id="txtUser" layoutX="123.0" layoutY="268.0" />
+                  <Text layoutX="49.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
+                  <JFXPasswordField fx:id="txtPass" layoutX="123.0" layoutY="310.0" />
+                  <JFXDatePicker fx:id="dateNacimiento" layoutX="114.0" layoutY="154.0" />
                </children>
             </Pane>
-            <JFXTextArea layoutX="365.0" layoutY="212.0" prefHeight="121.0" prefWidth="188.0" />
          </children>
       </Pane>
    </children>

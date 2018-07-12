@@ -82,6 +82,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void click_Clientes(ActionEvent event) {
+        
     }
 
     @FXML
@@ -90,6 +91,10 @@ public class HomeController implements Initializable {
 
     @FXML
     private void click_Usuarios(ActionEvent event) {
+        if(Pacani.getInstance().getLoggedUser().getNivel() >= 10){
+            cargarVista("CrearUsuario");
+        }
+        
     }
 
     @FXML
