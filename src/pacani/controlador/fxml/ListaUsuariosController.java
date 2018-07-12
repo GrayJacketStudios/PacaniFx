@@ -9,10 +9,17 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import pacani.Pacani;
+import pacani.modelo.Usuario;
+import tableView.viewUsuarios;
 
 /**
  * FXML Controller class
@@ -22,30 +29,46 @@ import javafx.scene.control.TableColumn;
 public class ListaUsuariosController implements Initializable {
 
     @FXML
-    private TableColumn<?, ?> trRut;
+    private TableColumn<viewUsuarios, String> trRut;
     @FXML
-    private TableColumn<?, ?> trUsuario;
+    private TableColumn<viewUsuarios, String> trUsuario;
     @FXML
-    private TableColumn<?, ?> trNivel;
+    private TableColumn<viewUsuarios, String> trNivel;
     @FXML
-    private TableColumn<?, ?> trNombre;
+    private TableColumn<viewUsuarios, String> trNombre;
     @FXML
-    private TableColumn<?, ?> trTelefono;
+    private TableColumn<viewUsuarios, String> trTelefono;
     @FXML
-    private TableColumn<?, ?> trEmail;
+    private TableColumn<viewUsuarios, String> trEmail;
     @FXML
     private JFXButton btnNewUser;
     @FXML
     private JFXButton btnBuscarUser;
     @FXML
     private JFXTextField txtBuscarUser;
+    @FXML
+    private TableView<viewUsuarios> tableUsuarios;
+    
+    private ObservableList<viewUsuarios> data;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+         data = FXCollections.observableArrayList();
+        buildData();
+        TableView<viewUsuarios> tableUsuarios = new TableView<viewUsuarios>();
+        trRut.setCellValueFactory(
+        new PropertyValueFactory<viewUsuarios, String>("rut"));
+        trNombre.setCellValueFactory(
+        new PropertyValueFactory<viewUsuarios, String>("nombre"));
+        trEmail.setCellValueFactory(
+        new PropertyValueFactory<viewUsuarios, String>("email"));
+        trTelefono.setCellValueFactory(
+        new PropertyValueFactory<viewUsuarios, String>("telefono"));
+        trUsuario.setCellValueFactory(
+        new PropertyValueFactory<viewUsuarios, String>("usuario"));
     }    
 
     @FXML
@@ -56,5 +79,32 @@ public class ListaUsuariosController implements Initializable {
     @FXML
     private void buscarUsuario(ActionEvent event) {
     }
+    
+    
+    
+    private void buildData(){
+        data.clear();
+        viewUsuarios temp = null;
+        try{
+            for(Usuario user: Pacani.getInstance().usuarios){
+                temp = new viewUsuarios();
+                temp.setRut(user.getPersona().getRut());
+                temp.setNombre(user.getPersona().getNombre()+" "+user.getPersona().getApellido());
+                temp.setTelefono(user.getPersona().getTelefono()+"");
+                temp.setEmail(user.getPersona().getEmail());
+                temp.setUsuario(user.getUsername());
+                temp.setNivel(user.getNivel()+"");
+                data.add(temp);
+            }
+        }catch(Exception e){
+                System.out.println("Error: "+e);
+        }
+
+        tableUsuarios.setItems(data);
+        tableUsuarios.refresh();
+    }
+    
+    
+    
     
 }
