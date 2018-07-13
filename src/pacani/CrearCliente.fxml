@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="pacani.controlador.fxml.CrearClienteController">
+     <children>
+      <Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f6f6f6;">
+         <children>
+            <Pane layoutX="404.0" layoutY="86.0" prefHeight="114.0" prefWidth="109.0">
+               <children>
+                  <JFXButton layoutX="23.0" layoutY="68.0" onAction="#volver" style="-fx-background-color: red;" text="Cancelar" />
+                  <JFXButton fx:id="btnCCliente" buttonType="RAISED" layoutX="12.0" layoutY="14.0" onAction="#crearCliente" style="-fx-background-color: green;" text="Crear Cliente" />
+               </children>
+            </Pane>
+            <Pane layoutX="22.0" layoutY="12.0" prefHeight="376.0" prefWidth="294.0">
+               <children>
+                  <Text layoutX="62.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" wrappingWidth="51.62500441074371" />
+                  <JFXTextField fx:id="txtNombre" layoutX="123.0" layoutY="22.0" />
+                  <Text layoutX="65.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido:" />
+                  <Text layoutX="88.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rut:" />
+                  <Text layoutX="14.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Nacimiento:" />
+                  <Text layoutX="72.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo:" wrappingWidth="51.62501335144043" />
+                  <Text layoutX="63.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono:" />
+                  <JFXTextField fx:id="txtApellido" layoutX="123.0" layoutY="67.0" />
+                  <JFXTextField fx:id="txtRut" layoutX="123.0" layoutY="110.0" />
+                  <JFXTextField fx:id="txtCorreo" layoutX="123.0" layoutY="189.0" />
+                  <JFXTextField fx:id="txtTelefono" layoutX="123.0" layoutY="226.0" />
+                  <JFXDatePicker fx:id="dateNacimiento" layoutX="114.0" layoutY="154.0" />
+               </children>
+            </Pane>
+            <Label fx:id="lblMsg" layoutX="353.0" layoutY="200.0" prefHeight="48.0" prefWidth="211.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

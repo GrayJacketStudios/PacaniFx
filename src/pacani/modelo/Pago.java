@@ -5,6 +5,9 @@
  */
 package pacani.modelo;
 
+import java.util.Date;
+import pacani.controller.Usuarios;
+
 /**
  *
  * @author Sebita
@@ -15,9 +18,18 @@ public class Pago {
     private int monto;
     private int estado;
     private String comentario;
-    private int usuario_rut;
+    private Usuario usuario_rut;
     private int tipo;
     private int tarjeta_id;
+    private Date fecha_pago;
+
+    public Date getFecha_pago() {
+        return fecha_pago;
+    }
+
+    public void setFecha_pago(Date fecha_pago) {
+        this.fecha_pago = fecha_pago;
+    }
 
     public Pago() {
     }
@@ -63,12 +75,12 @@ public class Pago {
         this.comentario = comentario;
     }
 
-    public int getUsuario_rut() {
+    public Usuario getUsuario_rut() {
         return usuario_rut;
     }
 
-    public void setUsuario_rut(int usuario_rut) {
-        this.usuario_rut = usuario_rut;
+    public void setUsuario_rut(String usuario_rut) {
+        this.usuario_rut = Usuarios.buscarUsuario(usuario_rut);
     }
 
     public int getTipo() {
@@ -87,13 +99,13 @@ public class Pago {
         this.tarjeta_id = tarjeta_id;
     }
 
-    public Pago(int id_pago, Reserva reserva, int monto, int estado, String comentario, int usuario_rut, int tipo, int tarjeta_id) {
+    public Pago(int id_pago, Reserva reserva, int monto, int estado, String comentario, String usuario_rut, int tipo, int tarjeta_id) {
         this.id_pago = id_pago;
         this.reserva = reserva;
         this.monto = monto;
         this.estado = estado;
         this.comentario = comentario;
-        this.usuario_rut = usuario_rut;
+        this.usuario_rut = Usuarios.buscarUsuario(usuario_rut);
         this.tipo = tipo;
         this.tarjeta_id = tarjeta_id;
     }

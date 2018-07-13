@@ -7,6 +7,7 @@ package pacani.controlador.fxml;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -15,12 +16,19 @@ import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.HBox;
 import pacani.modelo.Reserva;
+import pacani.Pacani;
+import pacani.modelo.Pago;
 
 /**
  * FXML Controller class
@@ -55,8 +63,6 @@ public class DetallesReservaController implements Initializable {
     @FXML
     private Label txtSaldoP;
     @FXML
-    private TableView<?> tablaPagos;
-    @FXML
     private JFXButton btnNPago;
     @FXML
     private JFXButton btnATran;
@@ -65,17 +71,7 @@ public class DetallesReservaController implements Initializable {
     @FXML
     private JFXButton btnVolver;
     @FXML
-    private TableColumn<?, ?> rowFecha;
-    @FXML
-    private TableColumn<?, ?> rowTipo;
-    @FXML
-    private TableColumn<?, ?> rowDebito;
-    @FXML
-    private TableColumn<?, ?> rowCredito;
-    @FXML
-    private TableColumn<?, ?> rowNotas;
-    @FXML
-    private TableColumn<?, ?> rowUsuario;
+    private HBox boxPagos;
 
     /**
      * Initializes the controller class.
@@ -94,6 +90,8 @@ public class DetallesReservaController implements Initializable {
     }
     
     public void iniciar(){
+        int saldoPendiente = 0;
+        
         Date fechaNacimiento = reserva.getCliente().getPersona().getF_nacimiento();
         LocalDate FN = Instant.ofEpochMilli(fechaNacimiento.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
         txtNombreCliente.setText(reserva.getCliente().getPersona().getNombre()+" "+reserva.getCliente().getPersona().getApellido());
@@ -115,6 +113,26 @@ public class DetallesReservaController implements Initializable {
                 txtServicio.setText("Masaje");
                 break;
         }
+        
+        
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/pacani/tablaPagos.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        TablaPagosController.getInstance().setReservaId(reserva.getId_reserva());
+        
+        boxPagos.getChildren().add(root);
+        
+        for(Pago pa: Pacani.getInstance().pagos){
+            if(pa.getReserva().getId_reserva() == reserva.getId_reserva()){
+                saldoPendiente += (pa.getMonto()*-1);
+            }
+        }
+        txtSaldoP.setText(saldoPendiente+"");
+        
 
     }
     

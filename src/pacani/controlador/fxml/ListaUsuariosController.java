@@ -69,6 +69,8 @@ public class ListaUsuariosController implements Initializable {
         new PropertyValueFactory<viewUsuarios, String>("telefono"));
         trUsuario.setCellValueFactory(
         new PropertyValueFactory<viewUsuarios, String>("usuario"));
+        trNivel.setCellValueFactory(
+        new PropertyValueFactory<viewUsuarios, String>("nivel"));
     }    
 
     @FXML

@@ -64,9 +64,34 @@ public class Pacani extends Application {
         getClientes();
         getReservas();
         getUsuarios();
+        getPagos();
     }
     
     
+    
+    private void getPagos(){
+        this.n.setExecuteQuery("SELECT * from Pago");
+        try {
+            while(this.n.getRs().next()){
+                Pago pago;
+                pago = new Pago();
+                pago.setId_pago(this.n.getRs().getInt("id_pago"));
+                pago.setReserva(Reservas.buscarReserva(this.n.getRs().getInt("id_reserva")));
+                pago.setFecha_pago(this.n.getRs().getTimestamp("fecha_pago"));
+                pago.setMonto(this.n.getRs().getInt("monto"));
+                pago.setEstado(this.n.getRs().getInt("estado"));
+                pago.setComentario(this.n.getRs().getString("comentario"));
+                pago.setUsuario_rut(this.n.getRs().getString("usuario_rut"));
+                pago.setTipo(this.n.getRs().getInt("tipo"));
+                pago.setTarjeta_id(this.n.getRs().getInt("tarjeta_id"));
+                
+                pagos.add(pago);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Pacani.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            System.out.println("Obtenida lista de "+pagos.size()+" pagos.");
+    }
     
     private void getUsuarios(){
         this.n.setExecuteQuery("SELECT * from Usuario");

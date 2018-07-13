@@ -3,15 +3,13 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="530.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="pacani.controlador.fxml.DetallesReservaController">
+<AnchorPane id="AnchorPane" prefHeight="487.0" prefWidth="708.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pacani.controlador.fxml.DetallesReservaController">
    <children>
-      <Pane layoutX="14.0" layoutY="12.0" prefHeight="97.0" prefWidth="571.0" style="-fx-border-color: blue; -fx-background-color: #f6f6f6;">
+      <Pane layoutX="3.0" layoutY="12.0" prefHeight="97.0" prefWidth="699.0" style="-fx-border-color: blue; -fx-background-color: #f6f6f6;">
          <children>
             <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="48.0" text="Cliente:" />
             <Label fx:id="txtNombreCliente" layoutX="62.0" layoutY="14.0" prefHeight="17.0" prefWidth="191.0" text="NOMBRE_CLIENTE + APELLIDO" />
@@ -21,43 +19,34 @@
             <Label fx:id="txtCorreo" layoutX="306.0" layoutY="43.0" text="CORREO_CLIENTE" />
             <Label layoutX="267.0" layoutY="14.0" text="Edad:" />
             <Label fx:id="txtEdad" layoutX="306.0" layoutY="14.0" text="EDAD_CLIENTE" />
-            <Label layoutX="14.0" layoutY="69.0" text="Miembro desde:" />
-            <Label fx:id="txtFCreacion" layoutX="105.0" layoutY="69.0" text="FECHA_CREACION_CLIENTE" />
+            <Label layoutX="442.0" layoutY="14.0" text="Miembro desde:" />
+            <Label fx:id="txtFCreacion" layoutX="537.0" layoutY="14.0" text="FECHA_CREACION_CLIENTE" />
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="120.0" prefHeight="97.0" prefWidth="571.0" style="-fx-border-color: red; -fx-background-color: #f6f6f6;">
+      <Pane layoutX="3.0" layoutY="121.0" prefHeight="68.0" prefWidth="699.0" style="-fx-border-color: red; -fx-background-color: #f6f6f6;">
          <children>
             <Label layoutX="14.0" layoutY="14.0" text="Reservación:" />
             <Label fx:id="txtReserva" layoutX="86.0" layoutY="14.0" text="RESERVA_ID" />
             <Label layoutX="194.0" layoutY="14.0" text="Servicio:" />
             <Label fx:id="txtServicio" layoutX="245.0" layoutY="14.0" text="NOMBRE_SERVICIO" />
-            <Label layoutX="14.0" layoutY="39.0" text="Fecha:" />
-            <Label fx:id="txtFecha" layoutX="54.0" layoutY="39.0" text="FECHA_RESERVA" />
-            <Label layoutX="194.0" layoutY="39.0" text="Hora:" />
-            <Label fx:id="txtHora" layoutX="231.0" layoutY="39.0" text="HORA_RESERVA" />
-            <Label layoutX="14.0" layoutY="65.0" text="Estado:" />
-            <JFXComboBox fx:id="cbEstado" layoutX="58.0" layoutY="61.0" prefHeight="25.0" prefWidth="131.0" promptText="Pendiente" />
+            <Label layoutX="365.0" layoutY="14.0" text="Fecha:" />
+            <Label fx:id="txtFecha" layoutX="406.0" layoutY="14.0" text="FECHA_RESERVA" />
+            <Label layoutX="516.0" layoutY="14.0" text="Hora:" />
+            <Label fx:id="txtHora" layoutX="552.0" layoutY="14.0" text="HORA_RESERVA" />
+            <Label layoutX="14.0" layoutY="33.0" text="Estado:" />
+            <JFXComboBox fx:id="cbEstado" layoutX="63.0" layoutY="29.0" prefHeight="25.0" prefWidth="131.0" promptText="Pendiente" />
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="230.0" prefHeight="244.0" prefWidth="571.0" style="-fx-border-color: red; -fx-background-color: #f6f6f6;">
+      <Pane layoutX="3.0" layoutY="196.0" prefHeight="244.0" prefWidth="699.0" style="-fx-border-color: red; -fx-background-color: #f6f6f6;">
          <children>
             <Label layoutX="14.0" layoutY="14.0" text="Saldo pendiente:" />
             <Label fx:id="txtSaldoP" layoutX="110.0" layoutY="14.0" text="SALDO_PENDIENTE" />
-            <TableView fx:id="tablaPagos" layoutX="14.0" layoutY="38.0" prefHeight="155.0" prefWidth="545.0">
-              <columns>
-                <TableColumn fx:id="rowFecha" prefWidth="91.0" text="Fecha y hora" />
-                <TableColumn fx:id="rowTipo" prefWidth="79.0" text="Tipo" />
-                  <TableColumn fx:id="rowDebito" prefWidth="86.0" text="Debito" />
-                  <TableColumn fx:id="rowCredito" prefWidth="95.0" text="Credito" />
-                  <TableColumn fx:id="rowNotas" prefWidth="95.0" text="Notas" />
-                  <TableColumn fx:id="rowUsuario" prefWidth="98.0" text="Usuario" />
-              </columns>
-            </TableView>
             <JFXButton fx:id="btnNPago" layoutX="69.0" layoutY="205.0" style="-fx-background-color: #d6d6d6;" text="Nuevo pago" />
             <JFXButton fx:id="btnATran" layoutX="213.0" layoutY="205.0" style="-fx-background-color: #d6d6d6;" text="Anular transaccion" />
             <JFXButton fx:id="btnACargo" layoutX="381.0" layoutY="205.0" style="-fx-background-color: #d6d6d6;" text="Agregar/ajustar cargo" />
+            <HBox fx:id="boxPagos" layoutX="1.0" layoutY="31.0" prefHeight="170.0" prefWidth="546.0" />
          </children>
       </Pane>
-      <JFXButton fx:id="btnVolver" layoutX="274.0" layoutY="491.0" style="-fx-background-color: #d6d6d6;" text="Volver" />
+      <JFXButton fx:id="btnVolver" layoutX="274.0" layoutY="451.0" style="-fx-background-color: #d6d6d6;" text="Volver" />
    </children>
 </AnchorPane>

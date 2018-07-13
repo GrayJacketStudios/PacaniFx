@@ -70,7 +70,8 @@ public class ListaClientesController implements Initializable {
     }    
 
     @FXML
-    private void nuevoUsuario(ActionEvent event) {
+    private void nuevoCliente(ActionEvent event) {
+        HomeController.getInstance().cargarVista("CrearCliente");
     }
 
     @FXML

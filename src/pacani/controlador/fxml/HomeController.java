@@ -102,6 +102,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void click_Info(ActionEvent event) {
+        cargarVista("informacion");
     }
 
     @FXML

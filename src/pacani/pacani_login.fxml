@@ -19,7 +19,7 @@
         <Label layoutX="27.0" layoutY="58.0" text="Usuario" textFill="#a4c3b2" />
         <Label layoutX="27.0" layoutY="120.0" text="Contraseña" textFill="#a4c3b2" />
         <JFXTextField fx:id="txt_User" layoutX="27.0" layoutY="76.0" unFocusColor="#a4c3b2" />
-        <JFXPasswordField fx:id="txt_Pas" labelFloat="true" layoutX="26.0" layoutY="136.0" unFocusColor="#a4c3b2" />
+        <JFXPasswordField fx:id="txt_Pas" labelFloat="true" layoutX="26.0" layoutY="136.0" onAction="#onEnter" unFocusColor="#a4c3b2" />
         <JFXButton buttonType="RAISED" layoutX="49.0" layoutY="197.0" onAction="#iniciaSesion" ripplerFill="#348d5c" style="-fx-background-color: cce3de;" text="Iniciar sesion" textAlignment="CENTER" textFill="#3c6e71" underline="true" />
         <ImageView fitHeight="240.0" fitWidth="350.0" layoutX="213.0" pickOnBounds="true" preserveRatio="true">
             <image>

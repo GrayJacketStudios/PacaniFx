@@ -27,7 +27,7 @@
                   </TableView>
                </children>
             </HBox>
-            <JFXButton fx:id="btnNewCliente" layoutX="493.0" layoutY="14.0" onAction="#nuevoUsuario" style="-fx-background-color: green;" text="Nuevo cliente" />
+            <JFXButton fx:id="btnNewCliente" layoutX="493.0" layoutY="14.0" onAction="#nuevoCliente" style="-fx-background-color: green;" text="Nuevo cliente" />
             <JFXButton fx:id="btnBuscarCliente" layoutX="535.0" layoutY="63.0" onAction="#buscarCliente" style="-fx-background-color: #656565;" text="Buscar" />
             <JFXTextField fx:id="txtBuscarCliente" layoutX="393.0" layoutY="63.0" />
             <Label layoutX="320.0" layoutY="67.0" text="Buscar cliente" />

@@ -79,5 +79,10 @@ public class Pacani_loginController implements Initializable {
             Pacani.getInstance().n.Conexion();
             iniciaSesion(event);
     }
+
+    @FXML
+    private void onEnter(ActionEvent event) {
+        iniciaSesion(event);
+    }
     
 }
