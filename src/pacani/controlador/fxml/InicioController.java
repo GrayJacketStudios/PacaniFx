@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 import java.util.function.Function;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 
@@ -65,6 +66,8 @@ public class InicioController implements Initializable {
 
 
     private DateTimeFormatter dateFormatter;
+    @FXML
+    private Label place;
 
 
     /**
@@ -171,6 +174,11 @@ public void clickItem(MouseEvent event)
         }catch(Exception e){
             System.out.println("Error: "+e);
         }
+    }
+
+    @FXML
+    private void agregarReserva(ActionEvent event) {
+        HomeController.getInstance().cargarVista("nuevaReserva");
     }
 
     private static class FunctionImpl implements Function<Reserva, ViewReservas> {

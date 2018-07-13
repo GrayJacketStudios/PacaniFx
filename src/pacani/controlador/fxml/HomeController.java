@@ -75,6 +75,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void click_Reservas(ActionEvent event) {
+        cargarVista("listaReservas");
     }
 
     @FXML
