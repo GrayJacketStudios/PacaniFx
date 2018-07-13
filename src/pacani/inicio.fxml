@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -53,7 +54,7 @@
                   <MotionBlur radius="0.0" />
                </effect>
                <children>
-                  <Label layoutY="2.0" prefHeight="35.0" prefWidth="119.0" text="Tratamientos estiticos pendientes" textAlignment="CENTER" wrapText="true">
+                  <Label layoutY="2.0" prefHeight="35.0" prefWidth="119.0" text="Tratamientos esteticos pendientes" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -89,6 +90,7 @@
             </HBox>
             <Label layoutX="357.0" layoutY="93.0" text="Fecha:" />
             <JFXDatePicker fx:id="calendario" defaultColor="#ff0404" layoutX="405.0" layoutY="89.0" onAction="#buildData" onInputMethodTextChanged="#buildData" />
+            <JFXButton layoutX="52.0" layoutY="89.0" onAction="#agregarReserva" style="-fx-background-color: green;" text="Nueva reserva" />
          </children>
       </AnchorPane>
    </children>
