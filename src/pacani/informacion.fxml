@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <Pane prefHeight="399.0" prefWidth="596.0" style="-fx-background-color: f6f6f6;">
+         <children>
+            <Text layoutX="194.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobre la aplicación" wrappingWidth="207.38671875">
+               <font>
+                  <Font name="Arial Narrow" size="29.0" />
+               </font>
+            </Text>
+            <Label alignment="TOP_CENTER" layoutX="238.0" layoutY="61.0" prefHeight="53.0" prefWidth="327.0" text="Esta aplicación fue desarrollada con el motivo de completar el proyecto de la clase &quot;Taller de desarrollo de aplicaciones&quot; con la docente Johana Estefano." wrapText="true" />
+            <Label alignment="TOP_LEFT" layoutX="238.0" layoutY="114.0" prefHeight="18.0" prefWidth="327.0" text="Los desarrolladores de esta aplicación son:" wrapText="true" />
+            <Label alignment="TOP_LEFT" layoutX="238.0" layoutY="132.0" prefHeight="18.0" prefWidth="327.0" text="*Marcelo Arrobash (M. @sh)" wrapText="true" />
+            <Label alignment="TOP_LEFT" layoutX="238.0" layoutY="150.0" prefHeight="18.0" prefWidth="327.0" text="*Sebastián Cristi" wrapText="true" />
+            <Label alignment="TOP_LEFT" layoutX="238.0" layoutY="168.0" prefHeight="18.0" prefWidth="327.0" text="*Eduardo Gamboa" wrapText="true" />
+            <Label alignment="TOP_LEFT" layoutX="238.0" layoutY="191.0" prefHeight="18.0" prefWidth="327.0" text="Toda imagen usada es de dominio publico o gratuita." wrapText="true" />
+            <Label alignment="TOP_LEFT" layoutX="238.0" layoutY="209.0" prefHeight="40.0" prefWidth="327.0" text="La aplicación fue desarrollada con la ayuda de las herramientas de JavaFX, Netbeans, Git, Github, entre otros." wrapText="true" />
+            <Label alignment="TOP_LEFT" layoutX="238.0" layoutY="249.0" prefHeight="79.0" prefWidth="327.0" text="Los desarrolladores de la aplicacion no se haran responsables de las consecuancias producidas por posibles malusos que se hagan con la aplicación, como hackeos a la nasa, pirateo extremo, barking tarking, etc" wrapText="true" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
