@@ -15,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import pacani.Pacani;
-import pacani.controller.Conexion;
 import pacani.controller.Consultas;
 
 /**
@@ -75,7 +74,6 @@ public class Pacani_loginController implements Initializable {
         
     }
     private void reTry(ActionEvent event){
-            Pacani.getInstance().n.closeConnection();
             Pacani.getInstance().n.Conexion();
             iniciaSesion(event);
     }

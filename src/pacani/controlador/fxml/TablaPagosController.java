@@ -17,9 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import pacani.Pacani;
 import pacani.modelo.Pago;
-import pacani.modelo.Usuario;
 import tableView.viewPagos;
-import tableView.viewUsuarios;
 
 
 /**

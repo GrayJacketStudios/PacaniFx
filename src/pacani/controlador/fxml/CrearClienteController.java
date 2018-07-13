@@ -7,7 +7,6 @@ package pacani.controlador.fxml;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -21,10 +20,8 @@ import pacani.Pacani;
 import pacani.controller.Clientes;
 import pacani.controller.Consultas;
 import pacani.controller.Personas;
-import pacani.controller.Usuarios;
 import pacani.modelo.Cliente;
 import pacani.modelo.Persona;
-import pacani.modelo.Usuario;
 
 /**
  * FXML Controller class
