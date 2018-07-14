@@ -32,7 +32,8 @@ public class Conexion {
     public void setExecuteUpdate(String sql){
         try{
             stmt=conn.createStatement();
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
+            rs = stmt.getGeneratedKeys();
         } catch (Exception ex){
             System.out.println("ERROR: "+ex.getMessage());        
         }

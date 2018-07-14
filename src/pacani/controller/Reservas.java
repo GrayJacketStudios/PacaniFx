@@ -5,6 +5,9 @@
  */
 package pacani.controller;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pacani.Pacani;
 import pacani.modelo.Reserva;
 
@@ -21,6 +24,17 @@ public class Reservas {
             }
         }
         return null;
+    }
+    
+    public static int getLastReserva() {
+        Consultas.SELECT("IDENT_CURRENT(`Reserva`)");
+        try {
+            Pacani.getInstance().n.getRs().next();
+            return Pacani.getInstance().n.getRs().getInt("id_reserva");
+        } catch (SQLException ex) {
+            Logger.getLogger(Reservas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
     
 }
