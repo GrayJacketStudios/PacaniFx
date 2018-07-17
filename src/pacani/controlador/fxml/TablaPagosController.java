@@ -93,7 +93,7 @@ public class TablaPagosController implements Initializable {
     
     
     
-    private void buildData(){
+    public void buildData(){
         data.clear();
         viewPagos temp = null;
         try{

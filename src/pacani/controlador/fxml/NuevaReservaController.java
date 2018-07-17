@@ -14,6 +14,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,8 +26,8 @@ import javafx.scene.control.Label;
 import pacani.Pacani;
 import pacani.controller.Clientes;
 import pacani.controller.Consultas;
-import pacani.controller.Reservas;
 import pacani.modelo.Cliente;
+import pacani.modelo.Pago;
 import pacani.modelo.Reserva;
 
 /**
@@ -88,7 +89,8 @@ public class NuevaReservaController implements Initializable {
         } catch (ParseException ex) {
             Logger.getLogger(NuevaReservaController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        switch(cbbServicio.getValue()){
+        
+        switch(cbbServicio.getPromptText()){
             case "Masajes":
                 res.setServicio_id(Short.parseShort(1+""));
                 break;
@@ -97,6 +99,9 @@ public class NuevaReservaController implements Initializable {
                 break;
             case "Sauna":
                 res.setServicio_id(Short.parseShort(3+""));
+                break;
+            default:
+                res.setServicio_id(Short.parseShort(1+""));
                 break;
         }
         try{
@@ -120,6 +125,7 @@ public class NuevaReservaController implements Initializable {
         }
         String id_reserva = null;
         try {
+            Pacani.getInstance().n.getRs().next();
             id_reserva= (Pacani.getInstance().n.getRs().getInt(1))+"";
         } catch (SQLException ex) {
             Logger.getLogger(NuevaReservaController.class.getName()).log(Level.SEVERE, null, ex);
@@ -131,6 +137,15 @@ public class NuevaReservaController implements Initializable {
         }
         try{
             Consultas.INSERT("INSERT INTO Pago (id_reserva,monto,estado,comentario,usuario_rut,tipo) VALUES ('"+id_reserva+"', '"+(-1*valor)+"' , '1', 'Cobro automatico por servicio' , '"+Pacani.getInstance().getLoggedUser().getPersona().getRut()+"' ,'"+res.getServicio_id()+"')");
+            Pago pago = new Pago();
+            Pacani.getInstance().n.getRs().next();
+            pago.setId_pago((Pacani.getInstance().n.getRs().getInt(1)));
+            pago.setMonto(-1*valor);
+            pago.setComentario("Cobro automatico por servicio");
+            pago.setFecha_pago(java.sql.Date.valueOf(dateReserva.getValue()));
+            Pacani.getInstance().pagos.add(pago);
+            
+        
         }catch(Exception e){
             System.out.println("Error 2: "+e);
         }

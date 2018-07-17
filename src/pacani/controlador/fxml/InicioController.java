@@ -113,11 +113,13 @@ public class InicioController implements Initializable {
 @FXML
 public void clickItem(MouseEvent event)
 {
+    
     if (event.getClickCount() == 2) //Checking double click
     {
         try{
             System.out.println(tablaReservas.getSelectionModel().getSelectedItem().getNombre());
             HomeController.getInstance().cargarVista("detallesReserva");
+            
             DetallesReservaController.getInstance().setReserva(Reserva.getReserva(tablaReservas.getSelectionModel().getSelectedItem().getIdReserva()));
             DetallesReservaController.getInstance().iniciar();
         }catch(Exception e){

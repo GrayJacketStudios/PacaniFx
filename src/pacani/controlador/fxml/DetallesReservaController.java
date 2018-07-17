@@ -89,7 +89,7 @@ public class DetallesReservaController implements Initializable {
     
     public void iniciar(){
         int saldoPendiente = 0;
-        
+        System.out.println("id: "+reserva.getId_reserva());
         Date fechaNacimiento = reserva.getCliente().getPersona().getF_nacimiento();
         LocalDate FN = Instant.ofEpochMilli(fechaNacimiento.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
         txtNombreCliente.setText(reserva.getCliente().getPersona().getNombre()+" "+reserva.getCliente().getPersona().getApellido());
@@ -120,10 +120,11 @@ public class DetallesReservaController implements Initializable {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        TablaPagosController.getInstance().setReservaId(reserva.getId_reserva());
+        
         
         boxPagos.getChildren().add(root);
-        
+        TablaPagosController.getInstance().setReservaId(reserva.getId_reserva());
+        TablaPagosController.getInstance().buildData();
         for(Pago pa: Pacani.getInstance().pagos){
             if(pa.getReserva().getId_reserva() == reserva.getId_reserva()){
                 saldoPendiente += (pa.getMonto()*-1);
