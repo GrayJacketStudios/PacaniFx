@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,6 +27,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import pacani.modelo.Reserva;
 import pacani.Pacani;
+import pacani.controller.Reservas;
 import pacani.modelo.Pago;
 
 /**
@@ -88,7 +90,6 @@ public class DetallesReservaController implements Initializable {
     }
     
     public void iniciar(){
-        int saldoPendiente = 0;
         System.out.println("id: "+reserva.getId_reserva());
         Date fechaNacimiento = reserva.getCliente().getPersona().getF_nacimiento();
         LocalDate FN = Instant.ofEpochMilli(fechaNacimiento.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
@@ -125,14 +126,15 @@ public class DetallesReservaController implements Initializable {
         boxPagos.getChildren().add(root);
         TablaPagosController.getInstance().setReservaId(reserva.getId_reserva());
         TablaPagosController.getInstance().buildData();
-        for(Pago pa: Pacani.getInstance().pagos){
-            if(pa.getReserva().getId_reserva() == reserva.getId_reserva()){
-                saldoPendiente += (pa.getMonto()*-1);
-            }
-        }
-        txtSaldoP.setText(saldoPendiente+"");
+        
+        txtSaldoP.setText(Reservas.getSaldoPendiente(reserva.getId_reserva())+"");
         
 
+    }
+
+    @FXML
+    private void clickVolver(ActionEvent event) {
+        HomeController.getInstance().cargarVista("inicio");
     }
     
 }

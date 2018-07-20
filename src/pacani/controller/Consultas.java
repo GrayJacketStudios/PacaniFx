@@ -39,6 +39,7 @@ public class Consultas {
     
     
     private static void reconnect(){
+        Pacani.getInstance().n = new Conexion();
         Pacani.getInstance().n.Conexion();
     }
     

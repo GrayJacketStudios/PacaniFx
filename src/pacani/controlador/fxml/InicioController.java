@@ -27,6 +27,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import pacani.Pacani;
+import pacani.controller.Reservas;
 import pacani.modelo.Reserva;
 import tableView.ViewReservas;
 
@@ -208,7 +209,7 @@ public void clickItem(MouseEvent event)
             }
             rv.setFecha(new SimpleDateFormat("dd/MM/yyyy").format(res.getFecha_hora()));
             rv.setHora(new SimpleDateFormat("HH:mm").format(res.getFecha_hora()));
-            rv.setSaldo(Double.toString(res.getSaldo_pendiente()));
+            rv.setSaldo(Double.toString(Reservas.getSaldoPendiente(res.getId_reserva())));
             switch (res.getEstado()) {
                 case 1:
                     rv.setEstado("Pendiente");

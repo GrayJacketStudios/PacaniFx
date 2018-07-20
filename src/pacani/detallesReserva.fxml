@@ -47,6 +47,6 @@
             <HBox fx:id="boxPagos" layoutX="1.0" layoutY="31.0" prefHeight="170.0" prefWidth="546.0" />
          </children>
       </Pane>
-      <JFXButton fx:id="btnVolver" layoutX="274.0" layoutY="451.0" style="-fx-background-color: #d6d6d6;" text="Volver" />
+      <JFXButton fx:id="btnVolver" layoutX="274.0" layoutY="451.0" onAction="#clickVolver" style="-fx-background-color: #d6d6d6;" text="Volver" />
    </children>
 </AnchorPane>

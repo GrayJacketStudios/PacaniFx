@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="190.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pacani.controlador.fxml.NuevaReservaController">
      <children>
-      <Pane prefHeight="218.0" prefWidth="600.0" style="-fx-background-color: #f6f6f6;">
+      <Pane prefHeight="278.0" prefWidth="600.0" style="-fx-background-color: #f6f6f6;">
          <children>
             <Pane layoutX="459.0" layoutY="52.0" prefHeight="114.0" prefWidth="109.0">
                <children>
@@ -20,20 +20,23 @@
                   <JFXButton fx:id="btnCReserva" buttonType="RAISED" layoutX="10.0" layoutY="14.0" onAction="#crearReserva" style="-fx-background-color: green;" text="Crear Reserva" />
                </children>
             </Pane>
-            <Pane layoutX="22.0" layoutY="12.0" prefHeight="206.0" prefWidth="294.0">
+            <Pane layoutX="22.0" layoutY="12.0" prefHeight="241.0" prefWidth="387.0">
                <children>
                   <Text layoutX="53.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rut cliente:" wrappingWidth="67.62500441074371" />
-                  <JFXTextField fx:id="txtRut" layoutX="123.0" layoutY="22.0" />
+                  <JFXTextField fx:id="txtRut" layoutX="123.0" layoutY="22.0" onInputMethodTextChanged="#checkDescuento" />
                   <Text layoutX="65.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Servicio:" />
                   <Text layoutX="69.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha: " />
-                  <Text layoutX="72.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora" wrappingWidth="29.62501335144043" />
+                  <Text layoutX="72.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora:" wrappingWidth="29.62501335144043" />
                   <JFXDatePicker fx:id="dateReserva" layoutX="119.0" layoutY="110.0" />
-                  <JFXComboBox fx:id="cbbServicio" layoutX="119.0" layoutY="69.0" prefHeight="25.0" prefWidth="135.0" promptText="Masaje" />
+                  <JFXComboBox fx:id="cbbServicio" layoutX="119.0" layoutY="69.0" onAction="#cambiaTipo" prefHeight="25.0" prefWidth="135.0" promptText="Masaje" />
                   <JFXTimePicker fx:id="timeReserva" layoutX="119.0" layoutY="154.0" />
-                  <JFXButton layoutX="264.0" layoutY="22.0" onAction="#btnNuevoCliente" style="-fx-background-color: #f0f0f0;" text="Nuevo cliente" />
+                  <JFXButton layoutX="265.0" layoutY="22.0" onAction="#btnNuevoCliente" style="-fx-background-color: #f0f0f0;" text="Nuevo cliente" />
+                  <Label layoutX="69.0" layoutY="194.0" text="Precio:   $" />
+                  <Label fx:id="lblPrecio" layoutX="123.0" layoutY="194.0" text="PRECIO_TEXT" />
+                  <Label fx:id="lblDescuento" layoutX="85.0" layoutY="219.0" prefHeight="17.0" prefWidth="211.0" />
                </children>
             </Pane>
-            <Label fx:id="lblMsg" layoutX="353.0" layoutY="200.0" prefHeight="48.0" prefWidth="211.0" />
+            <Label fx:id="lblMsg" layoutX="353.0" layoutY="200.0" prefHeight="48.0" prefWidth="211.0" wrapText="true" />
          </children>
       </Pane>
    </children>
