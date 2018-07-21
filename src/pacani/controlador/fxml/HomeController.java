@@ -75,9 +75,6 @@ public class HomeController implements Initializable {
         cargarVista("listaReservas");
     }
 
-    @FXML
-    private void click_Calendario(ActionEvent event) {
-    }
 
     @FXML
     private void click_Clientes(ActionEvent event) {
@@ -87,6 +84,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void click_Pagos(ActionEvent event) {
+        cargarVista("listaPagos");
     }
 
     @FXML
