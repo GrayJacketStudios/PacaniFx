@@ -4,10 +4,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="119.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="pacani.controlador.fxml.TablaPagosController">
+<AnchorPane id="AnchorPane" prefHeight="119.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pacani.controlador.fxml.TablaPagosController">
    <children>
-      <TableView fx:id="tablaPagos" prefHeight="203.0" prefWidth="679.0">
+      <TableView fx:id="tablaPagos" prefHeight="172.0" prefWidth="679.0">
          <columns>
             <TableColumn fx:id="rowFecha" prefWidth="91.0" text="Fecha y hora" />
             <TableColumn fx:id="rowReserva" minWidth="0.0" prefWidth="48.0" text="Reserva" />

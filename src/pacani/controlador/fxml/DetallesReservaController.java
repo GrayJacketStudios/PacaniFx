@@ -136,5 +136,13 @@ public class DetallesReservaController implements Initializable {
     private void clickVolver(ActionEvent event) {
         HomeController.getInstance().cargarVista("inicio");
     }
+
+    @FXML
+    private void nuevoPago(ActionEvent event) {
+        
+        HomeController.getInstance().cargarVista("nuevoPago");
+        NuevoPagoController.getInstance().setReserva(reserva);
+        NuevoPagoController.getInstance().buildData();
+    }
     
 }
